@@ -1,0 +1,27 @@
+.header {
+    grid-area: header;
+    background-color: #E8D3EC;
+    padding-bottom: 10px;
+}
+
+.logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 100%;
+
+    // .logo__img
+    &__img {
+        height: 100%;
+    }
+
+    // .logo__text
+    &__text {
+        font-size: 20px;
+        font-weight: 700;
+        font-style: italic;
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(174deg, rgba(9,34,121,1) 28%, rgba(0,212,255,1) 88%);
+        -webkit-background-clip: text;
+    }
+}
