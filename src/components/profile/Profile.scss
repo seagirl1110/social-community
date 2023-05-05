@@ -1,0 +1,8 @@
+.content {
+    grid-area: profile;
+    background-color: #cceef0;
+
+    &__img {
+        height: 500px;
+    }
+}

@@ -1,0 +1,14 @@
+.post {
+  color: purple;
+
+  &__container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__avatar {
+    height: 40px;
+    border-radius: 50%;
+  }
+}
