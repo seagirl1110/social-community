@@ -8,7 +8,7 @@ const Navbar = () => {
         {items.map((item, index) => {
           return (
             <li key={index} className="nav-list__item">
-              <a className="nav-list__link" href="#s">
+              <a className="nav-list__link" href={`/${item.toLowerCase()}`}>
                 {item}
               </a>
             </li>
