@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
@@ -8,9 +9,14 @@ const Navbar = () => {
         {items.map((item, index) => {
           return (
             <li key={index} className="nav-list__item">
-              <a className="nav-list__link" href={`/${item.toLowerCase()}`}>
+              <NavLink
+                className={(navData) =>
+                  navData.isActive ? 'nav-list__link nav-list__link--active' : 'nav-list__link'
+                }
+                to={`/${item.toLowerCase()}`}
+              >
                 {item}
-              </a>
+              </NavLink>
             </li>
           );
         })}

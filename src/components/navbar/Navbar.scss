@@ -1,4 +1,25 @@
 .navbar {
     grid-area: navbar;
-    background-color: #FDEBCD;
+    background-color: #fdebcd;
+    padding: 20px;
+}
+
+.nav-list {
+    list-style-type: none;
+
+    // .nav-list__item
+    &__item {
+        margin: 2px 0;
+    }
+
+    // .nav-list__link
+    &__link {
+        text-decoration: none;
+        color: darkblue;
+
+        // .nav-list__link--active
+        &--active {
+            color: blue
+        }
+    }
 }
