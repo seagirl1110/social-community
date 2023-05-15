@@ -1,0 +1,10 @@
+.dialogs__item {
+    text-decoration: none;
+    color: darkorchid;
+
+    // .dialogs__item--active
+    &--active {
+        color: lightcoral;
+        text-decoration: solid;
+    }
+}
