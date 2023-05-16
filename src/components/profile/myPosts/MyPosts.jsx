@@ -1,7 +1,11 @@
 import './MyPosts.scss';
 import Post from './post/Post';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+  const myPostsData = props.data;
+  const myPostsElements = myPostsData.map((post) => (
+    <Post message={post.message} counter={post.counter} key={post.id} />
+  ));
   return (
     <div className="my-posts">
       <h3>My posts</h3>
@@ -10,10 +14,7 @@ const MyPosts = () => {
         <textarea></textarea>
         <button>Add post</button>
       </div>
-      <div>
-        <Post message="Hi, how are you?" counter="15" />
-        <Post message="It's my first post" counter="20" />
-      </div>
+      <div>{myPostsElements}</div>
     </div>
   );
 };
