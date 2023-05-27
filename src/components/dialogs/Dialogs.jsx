@@ -5,10 +5,10 @@ import MessageItem from './messageItem/MessageItem';
 const Dialogs = (props) => {
   const { dialogs, messages } = props;
   const dialogsElements = dialogs.map((dialog) => (
-    <DialogsItem name={dialog.name} id={dialog.id} key={dialog.id} />
+    <DialogsItem dialog={dialog} key={dialog.id} />
   ));
   const messagesElements = messages.map((message) => (
-    <MessageItem user={message.user} text={message.text} key={message.id} />
+    <MessageItem message={message} key={message.id} />
   ));
   return (
     <div>

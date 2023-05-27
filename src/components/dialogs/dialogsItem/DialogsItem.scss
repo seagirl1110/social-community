@@ -1,10 +1,20 @@
-.dialogs__item {
+.dialogs-item {
     text-decoration: none;
     color: darkorchid;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
-    // .dialogs__item--active
+    // .dialogs-item--active
     &--active {
         color: lightcoral;
         text-decoration: solid;
+    }
+
+    // .dialogs-item__ava
+    &__ava {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
     }
 }

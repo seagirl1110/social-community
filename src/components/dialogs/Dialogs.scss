@@ -1,12 +1,12 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+    display: flex;
+    gap: 20px;
 }
 
 .dialogs {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
     padding: 10px;
 }
 
@@ -14,5 +14,6 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+    width: 500px;
 }

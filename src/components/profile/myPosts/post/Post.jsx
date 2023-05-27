@@ -1,7 +1,7 @@
 import './Post.scss';
 
 const Post = (props) => {
-  const ava = require('./../../../../image/ava.jpg');
+  const ava = require('./../../../../image/ava/i.jpg');
   const { message, counter } = props;
   return (
     <div className="post">
