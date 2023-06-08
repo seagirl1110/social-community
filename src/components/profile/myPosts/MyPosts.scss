@@ -1,0 +1,51 @@
+.my-posts {
+    padding: 10px;
+}
+
+.new-post {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 5px 0 20px;
+
+    // .new-post__title
+    &__title {
+        color: #8c229e;
+    }
+
+    // .new-post__text
+    &__text {
+        width: 500px;
+        padding: 2px 5px;
+        outline: none;
+    }
+
+    // .new-post__add-btn
+    &__add-btn {
+        width: 150px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: 1px solid #ab47bc;
+        border-radius: 2px;
+        background-color: #e1bee7;
+
+        // .new-post__add-btn:hover
+        &:hover {
+            background-color: #ce93d8;
+        }
+
+        // .new-post__add-btn:active
+        &:active {
+            background-color: #ba68c8;
+        }
+    }
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

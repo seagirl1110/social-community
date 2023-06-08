@@ -7,7 +7,7 @@ const Profile = (props) => {
     <section className="profile">
       <img className="profile__img" src={img} alt="nature" />
       <div>ava + description</div>
-      <MyPosts data={props.myPosts} />
+      <MyPosts myPosts={props.myPosts} />
     </section>
   );
 };

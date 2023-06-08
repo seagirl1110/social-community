@@ -1,4 +1,7 @@
 .post {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   color: purple;
 
   // .post__container
@@ -12,5 +15,33 @@
   &__avatar {
     height: 40px;
     border-radius: 50%;
+  }
+
+  // .post__counter
+  &__counter {
+    display: flex;
+    align-items: center;
+    gap: 15px 10px;
+
+    // .post__counter--btn
+    &--btn {
+      display: flex;
+      align-items: center;
+      padding: 1px;
+      outline: none;
+      border: none;
+      border-radius: 50%;
+      background-color: transparent;
+
+      // .post__counter--btn:hover
+      &:hover * {
+        fill: #ce93d8;
+      }
+
+      // .post__counter--btn:active
+      &:active * {
+        fill: #ab47bc;
+      }
+    }
   }
 }

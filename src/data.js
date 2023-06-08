@@ -1,8 +1,15 @@
+import { rerenderTree } from './index';
+
 const user = {
-  myPosts: [
-    { message: "It's my first post.", counter: 20, id: 0 },
-    { message: 'I have a cat. Her name is Muska.', counter: 35, id: 1 },
-  ],
+  myPosts: {
+    posts: [
+      { message: "It's my first post.", counter: 20, id: 0 },
+      { message: 'I have a cat. Her name is Muska.', counter: 35, id: 1 },
+    ],
+    newPost: '',
+    updateNewPost: updateNewPost,
+    addPost: addPost,
+  },
   dialogs: [
     { name: 'Alex', ava: 'image/ava/alex.jpg', id: 1 },
     { name: 'Nastya', ava: 'image/ava/nastya.jpg', id: 2 },
@@ -18,3 +25,18 @@ const user = {
 };
 
 export default user;
+
+function updateNewPost(text) {
+  user.myPosts.newPost = text;
+  rerenderTree(user);
+}
+
+function addPost(text) {
+  const post = {
+    message: text,
+    counter: 0,
+    id: user.myPosts.posts.length,
+  };
+  user.myPosts.posts.push(post);
+  rerenderTree(user);
+}
