@@ -1,6 +1,25 @@
-import { rerenderTree } from './index';
+let rerenderTree;
 
-const user = {
+export const setRerenderTree = (rerender) => {
+  rerenderTree = rerender;
+};
+
+const updateNewPost = (text) => {
+  user.myPosts.newPost = text;
+  rerenderTree(user);
+};
+
+const addPost = (text) => {
+  const post = {
+    message: text,
+    counter: 0,
+    id: user.myPosts.posts.length,
+  };
+  user.myPosts.posts.push(post);
+  rerenderTree(user);
+};
+
+export const user = {
   myPosts: {
     posts: [
       { message: "It's my first post.", counter: 20, id: 0 },
@@ -23,20 +42,3 @@ const user = {
     { text: "I'm good!", user: 'I', id: 4 },
   ],
 };
-
-export default user;
-
-function updateNewPost(text) {
-  user.myPosts.newPost = text;
-  rerenderTree(user);
-}
-
-function addPost(text) {
-  const post = {
-    message: text,
-    counter: 0,
-    id: user.myPosts.posts.length,
-  };
-  user.myPosts.posts.push(post);
-  rerenderTree(user);
-}
