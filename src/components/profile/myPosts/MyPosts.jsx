@@ -3,7 +3,8 @@ import Post from './post/Post';
 import { createRef } from 'react';
 
 const MyPosts = (props) => {
-  const { posts, newPost, updateNewPost, addPost } = props.myPosts;
+  const { myPosts, updateNewPost, addPost } = props;
+  const { posts, newPost } = myPosts;
   const postsElements = posts.map((post) => (
     <Post message={post.message} counter={post.counter} key={post.id} />
   ));

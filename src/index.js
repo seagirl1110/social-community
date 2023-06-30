@@ -2,20 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
-import {user, setRerenderTree} from './data';
+import {store} from './data';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export const rerenderTree = (data) => {
+export const rerenderTree = (state) => {
   root.render(
     <React.StrictMode>
-      <App user={data} />
+      <App state={state} updateNewPost={store.updateNewPost.bind(store)} addPost={store.addPost.bind(store)} />
     </React.StrictMode>
   );
 };
 
-rerenderTree(user);
-setRerenderTree(rerenderTree);
+rerenderTree(store.getState());
+store.subscribe(rerenderTree);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
