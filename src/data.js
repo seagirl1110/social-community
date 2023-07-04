@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST = 'UPDATE_NEW_POST';
+
 export const store = {
   _state: {
     myPosts: {
@@ -48,10 +51,14 @@ export const store = {
   },
 
   dispatch(action) {
-    if (action.type === 'UPDATE-NEW-POST') {
+    if (action.type === UPDATE_NEW_POST) {
       this._updateNewPost(action.text);
-    } else if (action.type === 'ADD-POST') {
+    } else if (action.type === ADD_POST) {
       this._addPost();
     }
   },
 };
+
+export const addPost = () => ({ type: ADD_POST });
+
+export const updateNewPost = (text) => ({ type: UPDATE_NEW_POST, text });

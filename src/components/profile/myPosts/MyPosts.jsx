@@ -1,6 +1,7 @@
 import './MyPosts.scss';
 import Post from './post/Post';
 import { createRef } from 'react';
+import { addPost, updateNewPost } from '../../../data';
 
 const MyPosts = (props) => {
   const { myPosts, dispatch } = props;
@@ -12,12 +13,12 @@ const MyPosts = (props) => {
   const newPostElement = createRef();
 
   const onClickAddPost = () => {
-    dispatch({ type: 'ADD-POST' });
+    dispatch(addPost());
   };
 
   const onChangePost = () => {
     const text = newPostElement.current.value;
-    dispatch({ type: 'UPDATE-NEW-POST', text: text });
+    dispatch(updateNewPost(text));
   };
 
   return (
