@@ -3,7 +3,7 @@ import Post from './post/Post';
 import { createRef } from 'react';
 
 const MyPosts = (props) => {
-  const { myPosts, updateNewPost, addPost } = props;
+  const { myPosts, dispatch } = props;
   const { posts, newPost } = myPosts;
   const postsElements = posts.map((post) => (
     <Post message={post.message} counter={post.counter} key={post.id} />
@@ -12,14 +12,12 @@ const MyPosts = (props) => {
   const newPostElement = createRef();
 
   const onClickAddPost = () => {
-    const text = newPostElement.current.value;
-    addPost(text);
-    updateNewPost('');
+    dispatch({ type: 'ADD-POST' });
   };
 
   const onChangePost = () => {
     const text = newPostElement.current.value;
-    updateNewPost(text);
+    dispatch({ type: 'UPDATE-NEW-POST', text: text });
   };
 
   return (

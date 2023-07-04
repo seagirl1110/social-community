@@ -23,6 +23,22 @@ export const store = {
 
   _callSubscriber: {},
 
+  _updateNewPost(text) {
+    this._state.myPosts.newPost = text;
+    this._callSubscriber(this._state);
+  },
+
+  _addPost() {
+    const post = {
+      message: this._state.myPosts.newPost,
+      counter: 0,
+      id: this._state.myPosts.posts.length,
+    };
+    this._state.myPosts.posts.push(post);
+    this._updateNewPost('');
+    this._callSubscriber(this._state);
+  },
+
   getState() {
     return this._state;
   },
@@ -31,18 +47,11 @@ export const store = {
     this._callSubscriber = subscriber;
   },
 
-  updateNewPost(text) {
-    this._state.myPosts.newPost = text;
-    this._callSubscriber(this._state);
-  },
-
-  addPost(text) {
-    const post = {
-      message: text,
-      counter: 0,
-      id: this._state.myPosts.posts.length,
-    };
-    this._state.myPosts.posts.push(post);
-    this._callSubscriber(this._state);
+  dispatch(action) {
+    if (action.type === 'UPDATE-NEW-POST') {
+      this._updateNewPost(action.text);
+    } else if (action.type === 'ADD-POST') {
+      this._addPost();
+    }
   },
 };
