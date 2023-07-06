@@ -1,6 +1,5 @@
 import './MyPosts.scss';
 import Post from './post/Post';
-import { createRef } from 'react';
 import { addPost, updateNewPost } from '../../../data';
 
 const MyPosts = (props) => {
@@ -10,14 +9,12 @@ const MyPosts = (props) => {
     <Post message={post.message} counter={post.counter} key={post.id} />
   ));
 
-  const newPostElement = createRef();
-
   const onClickAddPost = () => {
     dispatch(addPost());
   };
 
-  const onChangePost = () => {
-    const text = newPostElement.current.value;
+  const onChangePost = (event) => {
+    const text = event.target.value;
     dispatch(updateNewPost(text));
   };
 
@@ -28,7 +25,6 @@ const MyPosts = (props) => {
         <h4 className="new-post__title">New post</h4>
         <textarea
           className="new-post__text"
-          ref={newPostElement}
           value={newPost}
           onChange={onChangePost}
         ></textarea>
