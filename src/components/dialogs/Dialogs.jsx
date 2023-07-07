@@ -1,7 +1,7 @@
 import './Dialogs.scss';
 import DialogsItem from './dialogsItem/DialogsItem';
 import MessageItem from './messageItem/MessageItem';
-import { sendMessage, updateNewMessage } from '../../data';
+import { sendMessage, updateNewMessage } from '../../reducer/dialogs-reducer';
 
 const Dialogs = (props) => {
   const { dialogsPage, dispatch } = props;
@@ -19,7 +19,7 @@ const Dialogs = (props) => {
     dispatch(updateNewMessage(text));
   };
   const onClickBtnSend = () => {
-    dispatch(sendMessage);
+    dispatch(sendMessage());
   };
 
   return (

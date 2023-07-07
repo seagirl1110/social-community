@@ -1,7 +1,5 @@
-const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST = 'UPDATE_NEW_POST';
-const UPDATE_NEW_MESSAGE = 'UPDATE_NEW_MESSAGE';
-const SEND_MESSAGE = 'SEND_MESSAGE';
+import { dialogsReducer } from './reducer/dialogs-reducer';
+import { profileReducer } from './reducer/profile-reducer';
 
 export const store = {
   _state: {
@@ -31,36 +29,6 @@ export const store = {
 
   _callSubscriber: {},
 
-  _updateNewPost(text) {
-    this._state.profilePage.newPost = text;
-    this._callSubscriber(this._state);
-  },
-
-  _addPost() {
-    const post = {
-      message: this._state.profilePage.newPost,
-      counter: 0,
-      id: this._state.profilePage.posts.length,
-    };
-    this._state.profilePage.posts.push(post);
-    this._updateNewPost('');
-  },
-
-  _updateNewMessage(text) {
-    this._state.dialogsPage.newMessage = text;
-    this._callSubscriber(this._state);
-  },
-
-  _sendMessage() {
-    const message = {
-      text: this._state.dialogsPage.newMessage,
-      user: 'I',
-      id: this._state.dialogsPage.messages.length,
-    };
-    this._state.dialogsPage.messages.push(message);
-    this._updateNewMessage('');
-  },
-
   getState() {
     return this._state;
   },
@@ -70,20 +38,9 @@ export const store = {
   },
 
   dispatch(action) {
-    if (action.type === UPDATE_NEW_POST) {
-      this._updateNewPost(action.text);
-    } else if (action.type === ADD_POST) {
-      this._addPost();
-    } else if (action.type === UPDATE_NEW_MESSAGE) {
-      this._updateNewMessage(action.text);
-    } else if ((action.type = SEND_MESSAGE)) {
-      this._sendMessage();
-    }
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+
+    this._callSubscriber(this._state);
   },
 };
-
-export const addPost = () => ({ type: ADD_POST });
-export const updateNewPost = (text) => ({ type: UPDATE_NEW_POST, text });
-
-export const updateNewMessage = (text) => ({ type: UPDATE_NEW_MESSAGE, text });
-export const sendMessage = () => ({ type: SEND_MESSAGE });

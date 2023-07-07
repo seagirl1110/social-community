@@ -1,6 +1,6 @@
 import './MyPosts.scss';
 import Post from './post/Post';
-import { addPost, updateNewPost } from '../../../data';
+import { addPost, updateNewPost } from '../../../reducer/profile-reducer';
 
 const MyPosts = (props) => {
   const { myPosts, dispatch } = props;
