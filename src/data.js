@@ -5,14 +5,14 @@ const SEND_MESSAGE = 'SEND_MESSAGE';
 
 export const store = {
   _state: {
-    myPosts: {
+    profilePage: {
       posts: [
         { message: "It's my first post.", counter: 20, id: 0 },
         { message: 'I have a cat. Her name is Muska.', counter: 35, id: 1 },
       ],
       newPost: '',
     },
-    myDialogs: {
+    dialogsPage: {
       dialogs: [
         { name: 'Alex', ava: 'image/ava/alex.jpg', id: 0 },
         { name: 'Nastya', ava: 'image/ava/nastya.jpg', id: 1 },
@@ -32,32 +32,32 @@ export const store = {
   _callSubscriber: {},
 
   _updateNewPost(text) {
-    this._state.myPosts.newPost = text;
+    this._state.profilePage.newPost = text;
     this._callSubscriber(this._state);
   },
 
   _addPost() {
     const post = {
-      message: this._state.myPosts.newPost,
+      message: this._state.profilePage.newPost,
       counter: 0,
-      id: this._state.myPosts.posts.length,
+      id: this._state.profilePage.posts.length,
     };
-    this._state.myPosts.posts.push(post);
+    this._state.profilePage.posts.push(post);
     this._updateNewPost('');
   },
 
   _updateNewMessage(text) {
-    this._state.myDialogs.newMessage = text;
+    this._state.dialogsPage.newMessage = text;
     this._callSubscriber(this._state);
   },
 
   _sendMessage() {
     const message = {
-      text: this._state.myDialogs.newMessage,
+      text: this._state.dialogsPage.newMessage,
       user: 'I',
-      id: this._state.myDialogs.messages.length,
+      id: this._state.dialogsPage.messages.length,
     };
-    this._state.myDialogs.messages.push(message);
+    this._state.dialogsPage.messages.push(message);
     this._updateNewMessage('');
   },
 

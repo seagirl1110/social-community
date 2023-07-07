@@ -10,7 +10,7 @@ import Settings from './components/settings/Settings';
 
 const App = (props) => {
   const { state, dispatch } = props;
-  const { myPosts, myDialogs } = state;
+  const { profilePage, dialogsPage } = state;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -20,11 +20,11 @@ const App = (props) => {
           <Routes>
             <Route
               path="/profile"
-              element={<Profile myPosts={myPosts} dispatch={dispatch} />}
+              element={<Profile profilePage={profilePage} dispatch={dispatch} />}
             />
             <Route
               path="/messages/*"
-              element={<Dialogs myDialogs={myDialogs} dispatch={dispatch} />}
+              element={<Dialogs dialogsPage={dialogsPage} dispatch={dispatch} />}
             />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />

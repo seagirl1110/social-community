@@ -4,8 +4,8 @@ import MessageItem from './messageItem/MessageItem';
 import { sendMessage, updateNewMessage } from '../../data';
 
 const Dialogs = (props) => {
-  const { myDialogs, dispatch } = props;
-  const { dialogs, messages, newMessage } = myDialogs;
+  const { dialogsPage, dispatch } = props;
+  const { dialogs, messages, newMessage } = dialogsPage;
 
   const dialogsElements = dialogs.map((dialog) => (
     <DialogsItem dialog={dialog} key={dialog.id} />
