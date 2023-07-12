@@ -1,21 +1,20 @@
 import './MyPosts.scss';
 import Post from './post/Post';
-import { addPost, updateNewPost } from '../../../reducer/profile-reducer';
 
 const MyPosts = (props) => {
-  const { myPosts, dispatch } = props;
+  const { myPosts, addPost, updateNewPost } = props;
   const { posts, newPost } = myPosts;
   const postsElements = posts.map((post) => (
     <Post message={post.message} counter={post.counter} key={post.id} />
   ));
 
   const onClickAddPost = () => {
-    dispatch(addPost());
+    addPost();
   };
 
   const onChangePost = (event) => {
     const text = event.target.value;
-    dispatch(updateNewPost(text));
+    updateNewPost(text);
   };
 
   return (

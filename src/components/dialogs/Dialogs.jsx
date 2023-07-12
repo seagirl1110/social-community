@@ -1,10 +1,9 @@
 import './Dialogs.scss';
 import DialogsItem from './dialogsItem/DialogsItem';
 import MessageItem from './messageItem/MessageItem';
-import { sendMessage, updateNewMessage } from '../../reducer/dialogs-reducer';
 
 const Dialogs = (props) => {
-  const { dialogsPage, dispatch } = props;
+  const { dialogsPage, updateNewMessage, sendMessage } = props;
   const { dialogs, messages, newMessage } = dialogsPage;
 
   const dialogsElements = dialogs.map((dialog) => (
@@ -16,10 +15,10 @@ const Dialogs = (props) => {
 
   const onChangeMessage = (event) => {
     const text = event.target.value;
-    dispatch(updateNewMessage(text));
+    updateNewMessage(text);
   };
   const onClickBtnSend = () => {
-    dispatch(sendMessage());
+    sendMessage();
   };
 
   return (
@@ -34,7 +33,7 @@ const Dialogs = (props) => {
             <textarea
               className="new-message__text"
               value={newMessage}
-              placeholder='Enter your message'
+              placeholder="Enter your message"
               onChange={onChangeMessage}
             ></textarea>
             <button className="new-message__btn-send" onClick={onClickBtnSend}>

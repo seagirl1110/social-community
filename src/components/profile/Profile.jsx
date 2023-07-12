@@ -1,5 +1,5 @@
 import './Profile.scss';
-import MyPosts from './myPosts/MyPosts';
+import MyPostsContainer from './myPosts/MyPostsContainer';
 
 const Profile = (props) => {
   const img = require('./../../image/content-img.jpg');
@@ -7,7 +7,7 @@ const Profile = (props) => {
     <section className="profile">
       <img className="profile__img" src={img} alt="nature" />
       <div>ava + description</div>
-      <MyPosts myPosts={props.profilePage} dispatch={props.dispatch} />
+      <MyPostsContainer store={props.store} />
     </section>
   );
 };

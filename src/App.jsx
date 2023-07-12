@@ -3,14 +3,13 @@ import './App.scss';
 import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile';
-import Dialogs from './components/dialogs/Dialogs';
+import DialogsContainer from './components/dialogs/DialogsContainer';
 import News from './components/news/News';
 import Music from './components/music/Music';
 import Settings from './components/settings/Settings';
 
 const App = (props) => {
-  const { state, dispatch } = props;
-  const { profilePage, dialogsPage } = state;
+  const store = props.store;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -18,14 +17,8 @@ const App = (props) => {
         <Navbar />
         <div className="app-content">
           <Routes>
-            <Route
-              path="/profile"
-              element={<Profile profilePage={profilePage} dispatch={dispatch} />}
-            />
-            <Route
-              path="/messages/*"
-              element={<Dialogs dialogsPage={dialogsPage} dispatch={dispatch} />}
-            />
+            <Route path="/profile" element={<Profile store={store} />} />
+            <Route path="/messages/*" element={<DialogsContainer store={store} />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
