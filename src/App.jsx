@@ -8,8 +8,7 @@ import News from './components/news/News';
 import Music from './components/music/Music';
 import Settings from './components/settings/Settings';
 
-const App = (props) => {
-  const store = props.store;
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -17,8 +16,8 @@ const App = (props) => {
         <Navbar />
         <div className="app-content">
           <Routes>
-            <Route path="/profile" element={<Profile store={store} />} />
-            <Route path="/messages/*" element={<DialogsContainer store={store} />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/messages/*" element={<DialogsContainer />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />

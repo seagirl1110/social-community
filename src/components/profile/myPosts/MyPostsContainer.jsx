@@ -1,24 +1,31 @@
 import MyPosts from './MyPosts';
 import { addPost, updateNewPost } from '../../../reducer/profile-reducer';
+import StoreContext from '../../../StoreContext';
 
-const MyPostsContainer = (props) => {
-  const profilePage = props.store.getState().profilePage;
-  const dispatch = props.store.dispatch;
-
-  const onClickAddPost = () => {
-    dispatch(addPost());
-  };
-
-  const onChangePost = (text) => {
-    dispatch(updateNewPost(text));
-  };
-
+const MyPostsContainer = () => {
   return (
-    <MyPosts
-      myPosts={profilePage}
-      addPost={onClickAddPost}
-      updateNewPost={onChangePost}
-    />
+    <StoreContext.Consumer>
+      {(store) => {
+        const profilePage = store.getState().profilePage;
+        const dispatch = store.dispatch;
+
+        const onClickAddPost = () => {
+          dispatch(addPost());
+        };
+
+        const onChangePost = (text) => {
+          dispatch(updateNewPost(text));
+        };
+        
+        return (
+          <MyPosts
+            myPosts={profilePage}
+            addPost={onClickAddPost}
+            updateNewPost={onChangePost}
+          />
+        );
+      }}
+    </StoreContext.Consumer>
   );
 };
 

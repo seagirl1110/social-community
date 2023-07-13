@@ -4,12 +4,15 @@ import './index.scss';
 import App from './App';
 import { store } from './store';
 import reportWebVitals from './reportWebVitals';
+import StoreContext from './StoreContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const rerenderTree = () => {
   root.render(
     <React.StrictMode>
-      <App store={store} />
+      <StoreContext.Provider value={store}>
+        <App />
+      </StoreContext.Provider>
     </React.StrictMode>
   );
 };
