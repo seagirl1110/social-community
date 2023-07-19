@@ -32,5 +32,5 @@ export const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPost = () => ({ type: ADD_POST });
-export const updateNewPost = (text) => ({ type: UPDATE_NEW_POST, text });
+export const addPostAC = () => ({ type: ADD_POST });
+export const updateNewPostAC = (text) => ({ type: UPDATE_NEW_POST, text });
