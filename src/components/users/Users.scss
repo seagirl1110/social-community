@@ -1,0 +1,23 @@
+.users {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    // .users__title
+
+    &__title {
+        color: #f319e9;
+        border-bottom: 1px solid #f319e9;
+        width: 200px;
+        padding: 0 10px;
+    }
+
+    // .users__wrapper
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}

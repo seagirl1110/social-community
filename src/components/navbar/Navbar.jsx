@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
-  const items = ['Profile', 'Messages', 'News', 'Music', 'Settings'];
+  const items = ['Profile', 'Messages', 'News', 'Music', 'Users', 'Settings'];
   return (
     <aside className="navbar">
       <ul className="navbar__list nav-list">

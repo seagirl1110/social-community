@@ -1,0 +1,70 @@
+.user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+
+    // .user__ava
+
+    &__ava {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    // .user__ava-wrapper
+
+    &__ava-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
+    // .user__wrapper
+
+    &__wrapper {
+        border: 1px solid #2850d4;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .user__name
+
+    &__name {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    // .user__follow-btn
+
+    &__follow-btn {
+        align-self: center;
+        width: 70px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: 1px solid #ab47bc;
+        border-radius: 2px;
+        background-color: #e1bee7;
+        cursor: pointer;
+
+        // .user__follow-btn:hover
+
+        &:hover {
+            background-color: #d4a4dd;
+        }
+
+        // .user__follow-btn:active
+
+        &:active {
+            background-color: #d482e2;
+        }
+    }
+}
